@@ -1,0 +1,12 @@
+
+.vscode/
+node_modules/
+typings/
+.typingsrc
+*.js
+*.js.map
+npm-debug.log*
+.idea
+.idea/
+
+!systemjs.config.js
