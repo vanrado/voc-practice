@@ -1,7 +1,15 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Http} from "@angular/http";
 
 @Component({
-    selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+  moduleId: module.id,
+  selector: 'my-app',
+  templateUrl: 'app.component.html'
 })
-export class AppComponent { }
+export class AppComponent {
+  constructor(private http: Http) {
+    let ressp = this.http.get("/node_modules/zone.js/dist/zone.js").map(x => x);
+    ressp.subscribe(x => console.log('value ', x));
+    console.log('object ', ressp);
+  }
+}
