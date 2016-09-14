@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'quizzes.component.html',
+  templateUrl: 'quiz-history.component.html'
 })
-export class QuizzesComponent {
+export class QuizHistoryComponent {
   constructor(){
   }
 }

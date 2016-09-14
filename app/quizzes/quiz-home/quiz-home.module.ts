@@ -1,12 +1,12 @@
 import {NgModule}      from '@angular/core';
-import {QuizCreateComponent} from "./quiz-create.component";
+import {QuizHomeComponent} from "./quiz-home.component";
 import {RouterModule} from "@angular/router";
 
 const routes = [
   {
     path: '',
     pathMatch: 'prefix',
-    component: QuizCreateComponent
+    component: QuizHomeComponent
   }
 ];
 
@@ -14,8 +14,7 @@ const routes = [
   imports: [
     RouterModule.forChild(routes)
   ],
-  declarations: [QuizCreateComponent],
+  declarations: [QuizHomeComponent]
 })
-export class QuizCreateModule {
-
+export class QuizHomeModule {
 }

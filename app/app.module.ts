@@ -4,19 +4,20 @@ import {HttpModule}    from '@angular/http';
 import {AppComponent}  from './app.component';
 import './rxjs-operators';
 import {RouterModule} from "@angular/router";
-import {QuizzesComponent} from "./quizzes/quizzes.component";
 
+// TODO separe do suboru
 const routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/quizzes'
+    redirectTo: 'quizzes'
   },
   {
+    // TODO url = quizzes/list  ; quizzes/create  ; quizzes/history
     path: 'quizzes',
-    component: QuizzesComponent
+    loadChildren: 'app/quizzes/quizzes.module#QuizzesModule',
   }
-]
+];
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ const routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  declarations: [AppComponent, QuizzesComponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

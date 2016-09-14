@@ -8,8 +8,8 @@ import {Http} from "@angular/http";
 })
 export class AppComponent {
   constructor(private http: Http) {
-    let ressp = this.http.get("/node_modules/zone.js/dist/zone.js").map(x => x);
-    ressp.subscribe(x => console.log('value ', x));
-    console.log('object ', ressp);
+    // let ressp = this.http.get("/node_modules/zone.js/dist/zone.js").map(x => x);
+    // ressp.subscribe(x => console.log('value ', x));
+    // console.log('object ', ressp);
   }
 }
