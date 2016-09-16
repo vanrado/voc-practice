@@ -1,6 +1,9 @@
 import {NgModule}      from '@angular/core';
 import {QuizzesComponent} from "./quizzes.component";
 import {RouterModule} from "@angular/router";
+import {QuizService} from "./shared/QuizService";
+import {CommonModule} from "@angular/common";
+import {QuizListModalComponent} from "./quiz-list/quiz-list-modal/quiz-list-modal.component";
 
 const routes = [
   {
@@ -36,10 +39,11 @@ const routes = [
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [QuizzesComponent]
+  declarations: [QuizzesComponent],
+  providers: [QuizService]
 })
 export class QuizzesModule{
-
 }

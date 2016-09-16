@@ -1,0 +1,6 @@
+<section *ngIf="visible">
+  <h4>Quiz quick detail p={{ (quiz|async).id }}s={{ (quiz|async).id !== null && (quiz|async).id !== undefined }}</h4>
+
+  <a (click)="closeModal()">Close</a>
+  <p>Name: {{ (quiz|async).name }}</p>
+</section>

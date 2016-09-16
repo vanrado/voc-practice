@@ -7,6 +7,8 @@ import {RouterModule} from "@angular/router";
 import {AboutComponent} from "./about/about.component";
 import {LicenceComponent} from "./licence/licence.component";
 import {NotFoundComponent} from "./shared/404.component";
+import {QuizListModalComponent} from "./quizzes/quiz-list/quiz-list-modal/quiz-list-modal.component";
+import {CommonModule} from "@angular/common";
 
 // TODO separe do suboru
 const routes = [
@@ -38,6 +40,7 @@ const routes = [
   imports: [
     BrowserModule,
     HttpModule,
+    CommonModule,
     RouterModule.forRoot(routes)
   ],
   declarations: [AppComponent, AboutComponent, LicenceComponent, NotFoundComponent],

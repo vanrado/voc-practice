@@ -1,1 +1,8 @@
 <h3>Quiz list</h3>
+<ul>
+  <li *ngFor="let quiz of quizzes" (click)="onClick(quiz)">
+    <a [routerLink]="['../../list/', quiz.id]">{{quiz.name}}</a>
+    <!-- <a [routerLink]="['../../list', quiz.id]">{{quiz.name}}</a> -->
+  </li>
+</ul>
+<quiz-list-modal></quiz-list-modal>
