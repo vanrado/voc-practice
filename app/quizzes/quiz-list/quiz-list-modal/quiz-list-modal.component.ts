@@ -15,9 +15,12 @@ export class QuizListModalComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute) {
     this.quiz = this.route.params.map((p: Quiz) => {
-      console.log("param changed");
-      this.visible = p.id !== null && p.id !== undefined;
       return p;
+    });
+
+    this.quiz.subscribe((p: Quiz) => {
+      console.log("param changed", p);
+      this.visible = p.id !== null && p.id !== undefined;
     });
   }
 
@@ -27,6 +30,6 @@ export class QuizListModalComponent implements OnInit {
 
   closeModal() {
     console.log("close modal");
-    this.router.navigate(['../../']);
+    // this.router.navigate(['../../list/']);
   }
 }

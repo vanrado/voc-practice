@@ -20,6 +20,6 @@ export class QuizListComponent implements OnInit{
   }
 
   onClick(quiz: Quiz){
-    console.log("quiz clicked", quiz.id);
+    // console.log("quiz clicked", quiz.id);
   }
 }
