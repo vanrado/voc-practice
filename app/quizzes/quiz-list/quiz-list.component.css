@@ -1,0 +1,8 @@
+.quiz-list li a{
+  color: #607D8B;
+  text-decoration: none;
+}
+
+.quiz-list li.selected a{
+  font-weight: bold;
+}

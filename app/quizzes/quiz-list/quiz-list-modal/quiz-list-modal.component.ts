@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Quiz} from "../../shared/Quiz";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
+import {QuizService} from "../../shared/QuizService";
 
 @Component({
   moduleId: module.id,
@@ -13,23 +14,25 @@ export class QuizListModalComponent implements OnInit {
   visible: boolean;
 
   constructor(private router: Router,
-              private route: ActivatedRoute) {
-    this.quiz = this.route.params.map((p: Quiz) => {
-      return p;
-    });
-
-    this.quiz.subscribe((p: Quiz) => {
-      console.log("param changed", p);
-      this.visible = p.id !== null && p.id !== undefined;
-    });
+              private route: ActivatedRoute,
+              private quizService: QuizService) {
   }
 
   ngOnInit(): void {
+    this.quiz = this.route.params.map((p: Quiz) => {
+      return this.quizService.getQuiz(p.id);
+    });
 
+    this.quiz.subscribe((p: Quiz) => {
+      if (p !== null) {
+        console.log("param changed", p);
+        this.visible = p.id !== null && p.id !== undefined;
+      }
+    });
   }
 
   closeModal() {
     console.log("close modal");
-    // this.router.navigate(['../../list/']);
+    // this.router.navigate(['../../list/']) ;
   }
 }

@@ -1,6 +1,6 @@
 <h3>Quiz list</h3>
-<ul>
-  <li *ngFor="let quiz of quizzes" (click)="onClick(quiz)">
+<ul class="quiz-list">
+  <li *ngFor="let quiz of quizzes" (click)="onClick(quiz)" [ngClass]="{selected: quiz.id === (selectedQuiz|async).id}" >
     <a [routerLink]="['../../list/', quiz.id]">{{quiz.name}}</a>
     <!-- <a [routerLink]="['../../list', quiz.id]">{{quiz.name}}</a> -->
   </li>

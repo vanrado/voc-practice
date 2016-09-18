@@ -10,14 +10,13 @@ export class QuizService {
   }
 
   getQuizzes(){
-    console.log("Quizzeservice getting Quizzes" + JSON.stringify(MOCK_TESTS));
+    // console.log("Quizzeservice getting Quizzes" + JSON.stringify(MOCK_TESTS));
     return MOCK_TESTS;
   }
 
-  getTest(id: string){
+  getQuiz(id: string){
     console.log("Quizzeservice getting test: test.id=" + id);
     for(let test of this.getQuizzes()){
-      console.log("Quizzeservice let test test.id=" + test.id.constructor.name + " id=" + id.constructor.name);
       if(test.id === id){
         return test;
       }
