@@ -4,6 +4,8 @@ import {RouterModule} from "@angular/router";
 import {QuizService} from "./shared/QuizService";
 import {CommonModule} from "@angular/common";
 import {QuizListModalComponent} from "./quiz-list/quiz-list-modal/quiz-list-modal.component";
+import {SelectedQuizResolver} from "./quiz-list/SelectedQuizResolver";
+import {QuizzesResolver} from "./quiz-list/QuizzesResolver";
 
 const routes = [
   {
@@ -12,7 +14,7 @@ const routes = [
     children: [
       {
         path: 'list',
-        loadChildren: 'app/quizzes/quiz-list/quiz-list.module#QuizListModule',
+        loadChildren: 'app/quizzes/quiz-list/quiz-list.module#QuizListModule'
       },
       {
         path: 'create',
@@ -43,7 +45,7 @@ const routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [QuizzesComponent],
-  providers: [QuizService]
+  providers: [QuizService,  SelectedQuizResolver, QuizzesResolver]
 })
 export class QuizzesModule{
 }

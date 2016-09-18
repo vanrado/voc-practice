@@ -12,21 +12,25 @@ import {Observable} from "rxjs";
 export class QuizListComponent implements OnInit{
 
   // TODO skusit private/public
-  quizzes: Quiz[];
+  quizzes: Observable<Quiz[]>;
   selectedQuiz: Observable<Quiz>;
 
   constructor(private quizService: QuizService, private route: ActivatedRoute){
-    this.selectedQuiz = this.route.params.map((p: Quiz) => {
-      return p;
-    });
+
   }
 
   ngOnInit(): void {
     console.log("quiz list component init");
-    this.quizzes = this.quizService.getQuizzes();
+    // this.quizzes = this.quizService.getQuizzes();
+    this.quizzes  = this.route.data.pluck<Quiz[]>('quizzes');
+    this.selectedQuiz = this.route.data.pluck<Quiz>('quiz');  // TODO nutne zadat typ do <>
   }
 
   onClick(quiz: Quiz){
     // console.log("quiz clicked", quiz.id);
+  }
+
+  alert(...par){
+    console.log('alert', par);
   }
 }

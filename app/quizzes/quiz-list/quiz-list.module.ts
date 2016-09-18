@@ -3,16 +3,26 @@ import {QuizListComponent} from "./quiz-list.component";
 import {RouterModule} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {QuizListModalComponent} from "./quiz-list-modal/quiz-list-modal.component";
+import {SelectedQuizResolver} from "./SelectedQuizResolver";
+import {QuizzesResolver} from "./QuizzesResolver";
 
 const routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: QuizListComponent
+    component: QuizListComponent,
+    resolve: {
+      quiz: SelectedQuizResolver,
+      quizzes: QuizzesResolver
+    }
   },
   {
     path: ':id',
-    component: QuizListComponent
+    component: QuizListComponent,
+    resolve: {
+      quiz: SelectedQuizResolver,
+      quizzes: QuizzesResolver
+    }
   }
 ];
 

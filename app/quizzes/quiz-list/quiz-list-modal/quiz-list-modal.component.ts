@@ -22,6 +22,7 @@ export class QuizListModalComponent implements OnInit {
     this.quiz = this.route.params.map((p: Quiz) => {
       return this.quizService.getQuiz(p.id);
     });
+    // this.route.data.pluck('quiz');
 
     this.quiz.subscribe((p: Quiz) => {
       if (p !== null) {

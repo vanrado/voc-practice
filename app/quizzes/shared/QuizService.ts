@@ -15,16 +15,17 @@ export class QuizService {
   }
 
   getQuiz(id: string){
-    console.log("Quizzeservice getting test: test.id=" + id);
+    console.log("Quizzeservice getting quiz: test.id=" + id);
     for(let test of this.getQuizzes()){
       if(test.id === id){
+        console.log("Quizzeservice return quiz: test.id=" + id);
         return test;
       }
     }
 
     return null;
   }
-
+s
   createTest(test: Quiz){
     // TODO
     let len = this.getQuizzes().length;
