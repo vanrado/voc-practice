@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Quiz} from "../../shared/Quiz";
 import {Router, ActivatedRoute} from "@angular/router";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {QuizService} from "../../shared/QuizService";
 
 @Component({
@@ -35,5 +35,12 @@ export class QuizListModalComponent implements OnInit {
   closeModal() {
     console.log("close modal");
     // this.router.navigate(['../../list/']) ;
+  }
+
+  startExam(quiz: Subject<Quiz>): any {
+    quiz.subscribe(object => {
+      console.log('data test clicked', object);
+      this.router.navigate(['quizzes/exam/', object.id]);
+    });
   }
 }

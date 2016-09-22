@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Resolve, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
-import {QuizService} from "../shared/QuizService";
+import {QuizService} from "./QuizService";
 import {Observable} from "rxjs";
-import {Quiz} from "../shared/Quiz";
+import {Quiz} from "./Quiz";
 
 @Injectable()
 export class QuizzesResolver implements Resolve<any> {

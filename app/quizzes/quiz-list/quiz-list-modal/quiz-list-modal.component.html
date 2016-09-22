@@ -3,4 +3,5 @@
 
   <a (click)="closeModal()" [routerLink]="['../../list/']">Close</a>
   <p>Name: {{ (quiz|async).name }}</p>
+  <p><a (click)="startExam(quiz)">Test yourself</a></p>
 </section>

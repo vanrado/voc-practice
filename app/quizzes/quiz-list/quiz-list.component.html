@@ -2,7 +2,7 @@
 <ul class="quiz-list">
   <li *ngFor="let quiz of (quizzes|async)" (click)="onClick(quiz)" [ngClass]="{selected: (selectedQuiz|async) !== null && quiz.id === (selectedQuiz|async).id}" >
     <a [routerLink]="['../../list/', quiz.id]">{{quiz.name}}</a>
-    <!-- <a [routerLink]="['../../list', quiz.id]">{{quiz.name}}</a> -->
+    <!-- <a [routerLink]="['../../list', data.id]">{{data.name}}</a> -->
   </li>
 </ul>
 <quiz-list-modal></quiz-list-modal>
