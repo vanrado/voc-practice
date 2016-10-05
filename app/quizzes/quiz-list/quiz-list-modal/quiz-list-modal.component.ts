@@ -40,7 +40,7 @@ export class QuizListModalComponent implements OnInit {
   startExam(quiz: Subject<Quiz>): any {
     quiz.subscribe(object => {
       console.log('data test clicked', object);
-      this.router.navigate(['quizzes/exam/', object.id]);
+      this.router.navigate(['quizzes/exam/', object.id], {queryParams: {current: 1}});
     });
   }
 }

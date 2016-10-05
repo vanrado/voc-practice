@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import {MOCK_TESTS} from "./mock_quizzes";
 import {Quiz} from "./Quiz";
 import {Question} from "./Question";
+import {Http} from "@angular/http";
 
 @Injectable()
 export class QuizService {
-  constructor(){
+  constructor(private http: Http){
 
   }
 
@@ -25,7 +26,7 @@ export class QuizService {
 
     return null;
   }
-s
+
   createTest(test: Quiz){
     // TODO
     let len = this.getQuizzes().length;

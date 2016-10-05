@@ -1,2 +1,42 @@
-<h3>Quiz exam</h3>
-<a (click)="back()">Back</a>
+<section>
+  <h3>Quiz exam</h3>
+  <a (click)="back()">Back</a>
+
+  <h3>Quiz {{ (data|async).name }}</h3>
+
+  <div class="ui list">
+    <div class="item">
+      <div class="header">Vocabulary</div>
+      {{ (data|async).questions.length }}
+    </div>
+  </div>
+
+  <section>
+    <h4>{{current}} / {{ (data|async).questions.length }}</h4>
+
+
+
+
+    <!--<form [formGroup]="translateForm" (ngSubmit)="onSubmit(translateForm.value)">-->
+      <!--<div class="field" [class.error]="">-->
+        <!--<label for="answer">{{ currentQuestion.wordOne }}</label>-->
+        <!--<input type="text" placeholder="Translate" name="answer" id="answer" #answer formControlName="answer"-->
+               <!--[value]="currentQuestion.answer !== undefined ? currentQuestion.answer : ''">-->
+      <!--</div>-->
+
+
+    <button type="button" class="mini ui button" (click)="prev()" [disabled]="prevButtonVisible">Prev</button>
+    <button type="submit" class="mini ui button" (click)="next()" [disabled]="nextButtonVisible">Next</button>
+
+      <!--<button type="button" class="mini ui button" (click)="prev()" [disabled]="current == 1">Prev</button>-->
+      <!--<button type="submit" class="mini ui button" *ngIf="current != test.questions.length">Next</button>-->
+      <!--<button type="submit" class="mini ui button" *ngIf="current == test.questions.length">Evaluate</button>-->
+    <!--</form>-->
+  </section>
+
+
+  <!--<a (click)="cancel()" class="ui button" type="submit">Cancel</a>-->
+</section>
+
+
+
