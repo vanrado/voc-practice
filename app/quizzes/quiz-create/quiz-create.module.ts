@@ -1,6 +1,9 @@
 import {NgModule}      from '@angular/core';
 import {QuizCreateComponent} from "./quiz-create.component";
 import {RouterModule} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
+import {PreventClickedDirective} from "./PreventClickedDirective";
+import {CommonModule} from "@angular/common";
 
 const routes = [
   {
@@ -12,9 +15,11 @@ const routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes)
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
-  declarations: [QuizCreateComponent],
+  declarations: [QuizCreateComponent, PreventClickedDirective]
 })
 export class QuizCreateModule {
 
