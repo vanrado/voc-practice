@@ -2,14 +2,16 @@ import {NgModule}      from '@angular/core';
 import {QuizCreateComponent} from "./quiz-create.component";
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
-import {PreventClickedDirective} from "./PreventClickedDirective";
 import {CommonModule} from "@angular/common";
+import {CustomGuard} from "./custom-candeactivate.guard";
+import {ConfirmDialog} from "./confirm-dialog.component";
 
 const routes = [
   {
     path: '',
     pathMatch: 'prefix',
-    component: QuizCreateComponent
+    component: QuizCreateComponent,
+    canDeactivate: [CustomGuard]
   }
 ];
 
@@ -19,7 +21,7 @@ const routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule
   ],
-  declarations: [QuizCreateComponent, PreventClickedDirective]
+  declarations: [QuizCreateComponent]
 })
 export class QuizCreateModule {
 

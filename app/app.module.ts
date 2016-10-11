@@ -9,6 +9,9 @@ import {LicenceComponent} from "./licence/licence.component";
 import {NotFoundComponent} from "./shared/404.component";
 import {QuizListModalComponent} from "./quizzes/quiz-list/quiz-list-modal/quiz-list-modal.component";
 import {CommonModule} from "@angular/common";
+import {CustomGuard} from "./quizzes/quiz-create/custom-candeactivate.guard";
+import {ConfirmDialog} from "./quizzes/quiz-create/confirm-dialog.component";
+import {DialogService} from "./quizzes/quiz-create/dialog.service";
 
 // TODO separe do suboru
 const routes = [
@@ -43,7 +46,8 @@ const routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  declarations: [AppComponent, AboutComponent, LicenceComponent, NotFoundComponent],
+  declarations: [AppComponent, AboutComponent, LicenceComponent, NotFoundComponent, ConfirmDialog],
+  providers: [CustomGuard, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
