@@ -1,11 +1,16 @@
-<h1>Test your vocabulary App</h1>
-<span *ngFor="let cislo of counter">{{cislo}}</span>
-<button (click)="inkrement()">Click me!</button>
+<h1>Example App</h1>
 <nav>
   <ul>
-    <li><a routerLink="/" routerLinkActive="active">Quizzes</a></li>
+    <li><a routerLink="/" routerLinkActive="active">My Quizzes</a></li>
     <li><a routerLink="about" routerLinkActive="active">About</a></li>
     <li><a routerLink="licence" routerLinkActive="active">Licence</a></li>
+    <li *ngIf="authService.loggedIn">
+      Welcome LoggedUser, <a (click)="logout()">Logout</a>
+    </li>
+
+    <li *ngIf="!authService.loggedIn">
+      <a routerLink="login" routerLinkActive="active">Login</a>
+    </li>
   </ul>
 </nav>
 <router-outlet></router-outlet>

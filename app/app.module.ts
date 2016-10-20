@@ -12,6 +12,10 @@ import {CommonModule} from "@angular/common";
 import {CustomGuard} from "./quizzes/quiz-create/custom-candeactivate.guard";
 import {ConfirmDialog} from "./quizzes/quiz-create/confirm-dialog.component";
 import {DialogService} from "./quizzes/quiz-create/dialog.service";
+import {AuthGuard} from "./quizzes/shared/services/auth.guard";
+import {AuthService} from "./quizzes/shared/services/auth.service";
+import {QuizLoginComponent} from "./quizzes/quiz-login/quiz-login.component";
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 
 // TODO separe do suboru
 const routes = [
@@ -24,6 +28,7 @@ const routes = [
     // TODO url = quizzes/list  ; quizzes/create  ; quizzes/history
     path: 'quizzes',
     loadChildren: 'app/quizzes/quizzes.module#QuizzesModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'about',
@@ -34,6 +39,10 @@ const routes = [
     component: LicenceComponent
   },
   {
+    path: 'login',
+    component: QuizLoginComponent
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
@@ -41,13 +50,15 @@ const routes = [
 
 @NgModule({
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpModule,
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  declarations: [AppComponent, AboutComponent, LicenceComponent, NotFoundComponent, ConfirmDialog],
-  providers: [CustomGuard, DialogService],
+  declarations: [AppComponent, AboutComponent, LicenceComponent, NotFoundComponent, ConfirmDialog, QuizLoginComponent],
+  providers: [CustomGuard, DialogService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

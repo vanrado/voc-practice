@@ -1,0 +1,12 @@
+<section>
+  <h3>Please login</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form>
+    Username <br>
+    <input type="text" class="form-control" formControlName="username">
+
+    Password <br>
+    <input type="password" class="form-control" formControlName="password">
+
+    <button type="submit">Login</button>
+  </form>
+</section>
